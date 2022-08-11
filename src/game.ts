@@ -47,3 +47,10 @@ export const exampleOnePlayerGame = (deck: Deck): GameResult => {
     ? { winner: playerHand.name, reason: "Player wins on score" }
     : { winner: dealerHand.name, reason: "Dealer wins on score" };
 };
+
+if (require.main === module) {
+  const deck = new Deck();
+  deck.shuffle();
+
+  exampleOnePlayerGame(deck);
+}
