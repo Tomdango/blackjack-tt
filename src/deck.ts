@@ -12,7 +12,14 @@ class Deck {
     this.cards = this.createAllCards();
   }
 
-  public dealCard() {}
+  public dealCard() {
+    const card = this.cards.shift();
+    if (!card) {
+      throw new Error("Every card have been dealt from the deck");
+    }
+
+    return card;
+  }
 
   private createAllCards() {
     return CardRank.flatMap((rank) =>
