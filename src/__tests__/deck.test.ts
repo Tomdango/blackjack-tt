@@ -104,7 +104,7 @@ describe("Deck", () => {
 
     expect(dealtCards).toHaveLength(52);
     expect(() => deck.dealCard()).toThrowError(
-      "Every card have been dealt from the deck"
+      "Every card has been dealt from the deck"
     );
   });
 

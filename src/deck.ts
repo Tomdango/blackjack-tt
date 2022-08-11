@@ -16,7 +16,7 @@ class Deck {
   public dealCard() {
     const card = this.cards.shift();
     if (!card) {
-      throw new Error("Every card have been dealt from the deck");
+      throw new Error("Every card has been dealt from the deck");
     }
 
     return card;
