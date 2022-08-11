@@ -1,3 +1,4 @@
+import lodashShuffle from "lodash.shuffle";
 import { CardRank, CardSuit } from "./constants";
 
 export type Card = {
@@ -19,6 +20,10 @@ class Deck {
     }
 
     return card;
+  }
+
+  public shuffle() {
+    this.cards = lodashShuffle([...this.cards]);
   }
 
   private createAllCards() {

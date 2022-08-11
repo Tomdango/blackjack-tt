@@ -1,4 +1,6 @@
+import shuffle from "lodash.shuffle";
 import Deck, { Card } from "../deck";
+jest.mock("lodash.shuffle");
 
 /**
  * This is a little long, but we want to ensure that all the cards are in the deck without worrying about
@@ -104,5 +106,18 @@ describe("Deck", () => {
     expect(() => deck.dealCard()).toThrowError(
       "Every card have been dealt from the deck"
     );
+  });
+
+  it("shuffle calls the shuffle lodash function and sets the shuffled cards into the deck", () => {
+    const testCards = [{ suit: "♠", rank: "A" }];
+
+    const mockShuffle = shuffle as jest.Mock;
+    mockShuffle.mockImplementation(() => testCards);
+
+    const deck = new Deck();
+    deck.shuffle();
+
+    expect(mockShuffle).toHaveBeenCalledTimes(1);
+    expect(deck.cards).toEqual(testCards);
   });
 });
