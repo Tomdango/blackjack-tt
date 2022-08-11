@@ -14,3 +14,6 @@ export const CardRank = [
   "Q",
   "K",
 ] as const;
+
+export const BlackjackValue = 21;
+export const BustedValue = 22;
